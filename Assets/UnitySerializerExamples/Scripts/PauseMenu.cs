@@ -13,7 +13,6 @@ public class PauseMenu : MonoBehaviour {
     [SerializeField]
     private static bool logProgress = false;
 
-    private List<Transform> myList = new List<Transform>();
 
 
     private void Start() {

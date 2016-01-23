@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using Serialization;
+using UnityEngine.SceneManagement;
 
 [ExecuteInEditMode]
 [AddComponentMenu("Storage/Save Game Manager")]
@@ -102,7 +103,7 @@ public class SaveGameManager : MonoBehaviour
 		var entry = Instance.Reference[gameObject];
 		if(entry != null)
 			return entry.Id;
-		if(Application.isLoadingLevel && !Application.isPlaying)
+		if(SceneManager.GetActiveScene().isLoaded && !Application.isPlaying)
 		{
 			return null;
 		}

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using Serialization;
+using UnityEngine.SceneManagement;
 
 [AddComponentMenu("Storage/Tests/Test Loading")]
 public class TestLoading : MonoBehaviour
@@ -25,7 +26,7 @@ public class TestLoading : MonoBehaviour
 	void LoadLevel()
 	{
 		
-		Application.LoadLevel("Example");
+		SceneManager.LoadScene("Example");
 	}
 }
 

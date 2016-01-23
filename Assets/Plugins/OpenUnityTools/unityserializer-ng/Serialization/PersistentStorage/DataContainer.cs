@@ -12,7 +12,7 @@ namespace UnitySerializerNG.FilePreferences {
 
     [Serializable]
     public class DataContainer<T> {
-        private static GameObject QuitObject;
+        //private static GameObject QuitObject;
 
         private static string root = Path.GetFullPath(Application.persistentDataPath) + Path.DirectorySeparatorChar + "persistentData";
         private string profileName;
@@ -44,9 +44,9 @@ namespace UnitySerializerNG.FilePreferences {
                 RebuildFile();
             }
 
-            if (Application.isPlaying && SaveOnQuit.Instances < 1) {
-                QuitObject = new GameObject("FilePrefs_QuitObject", typeof(SaveOnQuit));
-            }
+            //if (Application.isPlaying && SaveOnQuit.Instances < 1) {
+            //    QuitObject = new GameObject("FilePrefs_QuitObject", typeof(SaveOnQuit));
+            //}
         }
 
         private void RebuildFile() {

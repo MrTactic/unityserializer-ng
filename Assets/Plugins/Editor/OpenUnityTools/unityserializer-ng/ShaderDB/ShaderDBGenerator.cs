@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using UnityEditor.SceneManagement;
 
 
 /// <summary>
@@ -60,7 +61,7 @@ type = $PROPTYPE
     /// Generates the code for the shader database
     /// </summary>
     public static void GenerateShaderDB() {
-        currentScene = EditorApplication.currentScene;
+        currentScene = EditorSceneManager.GetActiveScene().name;
 
         EditorBuildSettingsScene[] scenes = (from s in EditorBuildSettings.scenes
                                              where s.enabled
@@ -69,7 +70,7 @@ type = $PROPTYPE
             ProcessScene(scene);
         }
 
-        EditorApplication.OpenScene(currentScene);
+        EditorSceneManager.OpenScene(currentScene);
         currentScene = null;
 
         GenerateCode();
@@ -99,7 +100,7 @@ type = $PROPTYPE
     /// </summary>
     /// <param name="scene">The scene that should be processed</param>
     private static void ProcessScene(EditorBuildSettingsScene scene) {
-        EditorApplication.OpenScene(scene.path);
+        EditorSceneManager.OpenScene(scene.path);
 
         GameObject[] rootObjects = (from obj in GameObject.FindObjectsOfType<GameObject>()
                                     where !obj.transform.parent

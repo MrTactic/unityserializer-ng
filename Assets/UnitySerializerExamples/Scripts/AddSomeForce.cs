@@ -4,11 +4,9 @@ using System.Collections;
 public class AddSomeForce : MonoBehaviour {
     private bool done;
 
-    [SerializeField]
-    private Transform aChild;
 
     private void Awake() {
-        aChild = GetComponentsInChildren<Transform>()[0];
+        
     }
 
     private void FixedUpdate() {
